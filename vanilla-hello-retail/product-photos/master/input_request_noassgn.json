@@ -18,7 +18,6 @@
             "registrations": 3,
             "updated": 1569800053499,
             "updatedBy": "hello-retail/product-producer-automation",
-            "assignment": "1",
             "id": "1",
             "phone": "200494",
 	    "name": "abcd"
@@ -26,7 +25,7 @@
         "tasks": {
             "taskToken": "12345"
         },
-        "assigned": "true",
+        "assigned": "false",
         "assignmentComplete": "false"
     }
 }

@@ -237,8 +237,8 @@ const impl = {
  */
 module.exports = (event, context, callback) => {
     impl.validateApiGatewayRequest(event)
-      .then(res => impl.getResources(res))
-      .then(res => impl.storeImage(res))
+      .then(impl.getResources)
+      .then(impl.storeImage)
       .then(res => impl.sendStepSuccess(res, event))
       // .then(impl.thankYouForImage)
       .then((msg) => {
