@@ -1,4 +1,3 @@
-'use strict';
 
 /* ********************************************************************
  *                 Hello Retail Minimization:
@@ -27,7 +26,7 @@ const receiveRequestSchemaId = makeSchemaId(receiveRequestSchema);
 const photoAssignmentSchemaId = makeSchemaId(photoAssignmentSchema);
 
 
-const ajv = new AJV();
+const ajv = new AJV.default({ strict: false });
 ajv.addSchema(receiveRequestSchema, receiveRequestSchemaId);
 ajv.addSchema(photoAssignmentSchema, photoAssignmentSchemaId);
 
@@ -128,7 +127,7 @@ const impl = {
       return BbPromise.resolve(event)
     }
   },
-  getResources: results => BbPromise.all([
+  getResources: (results) => BbPromise.all([
     impl.getImageFromEvent(results),
     impl.getAssignment(results),
 
@@ -170,6 +169,8 @@ const impl = {
       .then(() => kv.get(resultsData.From)) 
       .then(res => kv.close().then(() => res))
       .then((res) => {
+	console.log("Gonna Parse")
+	console.log(res)
         const parsedRes = JSON.parse(res);
         parsedRes.id = resultsData.From;
         return parsedRes;
@@ -236,8 +237,8 @@ const impl = {
  */
 module.exports = (event, context, callback) => {
     impl.validateApiGatewayRequest(event)
-      .then(impl.getResources)
-      .then(impl.storeImage)
+      .then(res => impl.getResources(res))
+      .then(res => impl.storeImage(res))
       .then(res => impl.sendStepSuccess(res, event))
       // .then(impl.thankYouForImage)
       .then((msg) => {

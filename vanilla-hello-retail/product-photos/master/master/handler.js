@@ -88,7 +88,7 @@ const api = {
 
 module.exports = (event, context, callback) => {
     console.log('abcd')
-   if (event.path == '/request') {
+    if (event.path == '/request') {
       api.receiveRequest (event, context, callback);
     } else if (event.path == '/photos') {
       api.receivePhoto (event, context, callback);

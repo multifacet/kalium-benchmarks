@@ -1,4 +1,3 @@
-'use strict';
 
 const AJV = require('ajv');
 
@@ -42,7 +41,7 @@ const makeSchemaId = schema => `${schema.self.vendor}/${schema.self.name}/${sche
 const eventSchemaId = makeSchemaId(eventSchema);
 const productImageSchemaId = makeSchemaId(productImageSchema);
 
-const ajv = new AJV();
+const ajv = new AJV.default({ strict: false });;
 ajv.addSchema(eventSchema, eventSchemaId);
 ajv.addSchema(productImageSchema, productImageSchemaId);
 
