@@ -1,7 +1,7 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://node4.netes1.cs799-serverless-pg0.utah.cloudlab.us:31112
+  gateway: http://node4.netes2.cs799-serverless-pg0.wisc.cloudlab.us:31112
 functions:
   product-photos-4-success:
     lang: node10-express
@@ -11,4 +11,6 @@ functions:
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable
     write_debug: true
+    annotations:
+      com.openfaas.profile: test
     
