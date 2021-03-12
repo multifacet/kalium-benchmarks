@@ -51,8 +51,8 @@ ENV mode="http"
 ENV upstream_url="http://127.0.0.1:3000"
 
 ENV exec_timeout="0s"
-ENV write_timeout="15s"
-ENV read_timeout="15s"
+ENV write_timeout="2h"
+ENV read_timeout="2h"
 
 HEALTHCHECK --interval=3s CMD [ -e /tmp/.lock ] || exit 1
 

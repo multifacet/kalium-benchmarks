@@ -7,11 +7,12 @@
  *  - Changed returned values to a simple string instead of HTTP
  *    response.
  * ******************************************************************** */
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 const AJV = require('ajv');
 const BbPromise = require('bluebird');
 const got = require('got');
 const url = require('url');
+const request = require('request-promise');
 
 const { KV_Store } = require('kv-store');
 const fs = require('fs');
@@ -137,10 +138,21 @@ const impl = {
    * @param results The event representing the HTTPS request.
    */
   getImageFromEvent: (results) => {
-      console.log('******** getImageFromEvent ********');
+    console.log('******** getImageFromEvent ********');
     const resultsData = results.body;
     const uri = url.parse(resultsData.MediaUrl0);
-    
+    return request({
+                url: uri
+                ,method: 'GET'
+	}).then(
+		res => BbPromise.resolve({
+          		contentType: resultsData.MediaContentType0,
+          		data: res,
+        	})
+	)
+  },
+
+/*
     return got.get(uri, { encoding: null }).then(
       res => 
         BbPromise.resolve({
@@ -148,9 +160,7 @@ const impl = {
           data: res.body,
         })
       
-    ) 
-      
-},
+    )*/
   /**
    * The request doesn't contain any of the original product creation event that caused the assignment.  Obtain the
    * assignment associated with the number that this message/image is being received from.
