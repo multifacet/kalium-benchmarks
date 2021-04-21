@@ -34,19 +34,21 @@ module.exports = (event, context, callback) => {
   console.log(JSON.stringify(event));
   
   request({
-  	url: 'https://node0.controller.cs799-serverless-pg0.wisc.cloudlab.us:4443/',
+  	url: 'https://node0.controller.cs799-serverless-pg0.wisc.cloudlab.us:4443/image.jpg',
   	agentOptions: {
     		rejectUnauthorized: false
   	},
 	method: 'GET'
   }, function (err, resp, body) {
- 	console.log(body)
+ 	//console.log(body)
+	const result = event.body;
+        callback(null, result)
   });
   
   
-  const result = event.body;
+  //const result = event.body;
   //result.assignmentComplete = 'true';
   //result.photographer.status='complete'
-  callback(null, result)
+  //callback(null, result)
 };
 
