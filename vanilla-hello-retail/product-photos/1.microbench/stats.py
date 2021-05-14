@@ -7,8 +7,10 @@ def main():
     s = f.readlines()
     for line in s:
         l = line.strip("\n")
-        s1 += float(l[:-1])
-        n1 += 1
+        p = float(l[:-1])
+        if p < 5.00:
+            s1 += p
+            n1 += 1
     print ("Avg: %f" % (s1 / n1))
 
 if __name__ == "__main__":
