@@ -20,5 +20,5 @@ functions:
       PASS: 'xyz'
       #http_proxy: 'http://127.0.0.1:8082'
       #https_proxy: 'http://127.0.0.1:8082'
-    annotations:
-      com.openfaas.profile: test
+      #annotations:
+      #com.openfaas.profile: test
