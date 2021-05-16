@@ -54,8 +54,8 @@ popd
 
 # master-receive
 pushd ./master/
-./run_bench_receive.sh 100 valve_$2_masterReceive
-../stats.py valve_$2_masterReceive > valve_$2_masterReceive_results
+./run_bench_request.sh 100 valve_$2_masterRequest
+../stats.py valve_$2_masterRequest > valve_$2_masterRequest_results
 popd
 
 ./launch_functions.sh remove
