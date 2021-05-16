@@ -34,4 +34,4 @@ pushd ./master/
 faas-cli $1 -f master.yml
 popd
 
-sleep 70
+sleep 37
