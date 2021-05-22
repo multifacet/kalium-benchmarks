@@ -1,12 +1,18 @@
 FROM openfaas/of-watchdog:0.5.3 as watchdog
 
-FROM node:10.12.0-alpine as ship
+#FROM node:10.12.0-alpine as ship
+FROM ubuntu:18.04 as ship
 
 COPY --from=watchdog /fwatchdog /usr/bin/fwatchdog
 RUN chmod +x /usr/bin/fwatchdog
 
-RUN apk --no-cache add curl ca-certificates \
-    && addgroup -S app && adduser -S -g app app
+#RUN apk --no-cache add curl ca-certificates \
+#    && addgroup -S app && adduser -S -g app app
+
+RUN apt-get update
+RUN apt-get install -y curl ca-certificates nodejs npm
+RUN addgroup --system app && adduser --system --ingroup app app
+
 
 WORKDIR /root/
 
