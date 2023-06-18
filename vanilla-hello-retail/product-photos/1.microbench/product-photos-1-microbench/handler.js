@@ -34,7 +34,7 @@ module.exports = (event, context, callback) => {
   console.log(JSON.stringify(event));
   
   request({
-  	url: 'https://node0.controller.cs799-serverless-pg0.wisc.cloudlab.us:4443/image.jpg',
+  	url: event.body.MediaUrl0,
   	agentOptions: {
     		rejectUnauthorized: false
   	},

@@ -15,4 +15,5 @@ while [ $counter -lt $NUM_ITER ]
 do
 	curl -d @sample-input_localurl.json -w "@curl-format_total.txt" -H "Content-Type: application/json" -X POST "http://$HOSTNAME:31112/function/product-photos-3-receive" -o /dev/null >> $2
 	counter=$((counter + 1))
+	sleep 5
 done

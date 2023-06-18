@@ -6,56 +6,56 @@ set -ex
 
 # 1.assign
 pushd ./1.assign/
-./run_bench.sh 100 valve_$2_assign
-../stats.py valve_$2_assign > valve_$2_assign_results
+./run_bench.sh 20 valve_20_assign
+../stats.py valve_20_assign > valve_20_assign_results
 popd
 
 # 1.microbench
 pushd ./1.microbench/
-./run_bench.sh 100 valve_$2_microbench
-../stats.py valve_$2_microbench > valve_$2_microbench_results
+./run_bench.sh 20 valve_20_microbench
+../stats.py valve_20_microbench > valve_20_microbench_results
 popd
 
 # 2.message
 pushd ./2.message/
-./run_bench.sh 100 valve_$2_message
-../stats.py valve_$2_message > valve_$2_message_results
+./run_bench.sh 20 valve_20_message
+../stats.py valve_20_message > valve_20_message_results
 popd
 
 # 2.record
 pushd ./2.record/
-./run_bench.sh 100 valve_$2_record
-../stats.py valve_$2_record > valve_$2_record_results
+./run_bench.sh 20 valve_20_record
+../stats.py valve_20_record > valve_20_record_results
 popd
 
 # 3.receive
 pushd ./3.receive/
-./run_bench.sh 100 valve_$2_receive
-../stats.py valve_$2_receive > valve_$2_receive_results
+./run_bench.sh 20 valve_20_receive
+../stats.py valve_20_receive > valve_20_receive_results
 popd
 
 # 4.success
 pushd ./4.success/
-./run_bench.sh 100 valve_$2_success
-../stats.py valve_$2_success > valve_$2_success_results
+./run_bench.sh 20 valve_20_success
+../stats.py valve_20_success > valve_20_success_results
 popd
 
 # 6.report
 pushd ./6.report/
-./run_bench.sh 100 valve_$2_report
-../stats.py valve_$2_report > valve_$2_report_results
+./run_bench.sh 20 valve_20_report
+../stats.py valve_20_report > valve_20_report_results
 popd
 
 # master-photos
 pushd ./master/
-./run_bench_photos.sh 100 valve_$2_masterPhotos
-../stats.py valve_$2_masterPhotos > valve_$2_masterPhotos_results
+./run_bench_photos.sh 20 valve_20_masterPhotos
+../stats.py valve_20_masterPhotos > valve_20_masterPhotos_results
 popd
 
 # master-receive
 pushd ./master/
-./run_bench_request.sh 100 valve_$2_masterRequest
-../stats.py valve_$2_masterRequest > valve_$2_masterRequest_results
+./run_bench_request.sh 20 valve_20_masterRequest
+../stats.py valve_20_masterRequest > valve_20_masterRequest_results
 popd
 
 ./launch_functions.sh remove

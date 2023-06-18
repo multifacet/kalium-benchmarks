@@ -1,4 +1,4 @@
-FROM openfaas/of-watchdog:0.5.3 as watchdog
+FROM dsirone/of-watchdog-package as watchdog
 
 FROM ubuntu:18.04 as ship
 

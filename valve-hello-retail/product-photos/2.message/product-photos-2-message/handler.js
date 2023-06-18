@@ -55,8 +55,8 @@ const impl = {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: 'joesph88@ethereal.email',
-          pass: 'QUgxRnA3X9zuDGGdX3',
+          user: 'jack.bergnaum@ethereal.email',
+          pass: 'dbXcfSXNeTkUDcc129',
         },
       });
       return Promise.resolve(transporter);
