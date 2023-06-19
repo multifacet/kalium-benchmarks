@@ -37,7 +37,7 @@ RUN ls && pwd && cat package.json
 
 RUN npm i || :
 
-#COPY ./libssl.so.1.0.0 ./libcrypto.so.1.0.0 /usr/lib/x86_64-linux-gnu/
+COPY ./libssl.so.1.0.0 ./libcrypto.so.1.0.0 /usr/lib/x86_64-linux-gnu/
 # COPY function files and folders
 COPY function/ ./
 
