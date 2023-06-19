@@ -7,10 +7,10 @@ functions:
     lang: node10-express
     handler: ./product-photos-3-receive
     image: dsirone/trapeze-product-photos-3-receive:latest
-    read_timeout: 500 # seconds
-    write_timeout: 500 # seconds
-    exec_timeout: 0s # disable
-    write_debug: true
+    read_timeout: 1000s # seconds
+    write_timeout: 1000s # seconds
+    exec_timeout: 1000s # disable
+    #write_debug: true
     environment:
       DBNAME: 'helloRetail'
       TABLE_PHOTO_ASSIGNMENTS_NAME: 'photoAssignmentTable'

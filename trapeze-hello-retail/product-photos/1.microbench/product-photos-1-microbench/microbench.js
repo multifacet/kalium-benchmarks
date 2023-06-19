@@ -65,12 +65,12 @@ module.exports = (event, context, callback) => {
   //  .then(res => callback(null, event.body))
   //get_url().then(res => callback(null, event.body));
   request({
-        url: 'https://node0.controller.cs799-serverless-pg0.wisc.cloudlab.us:4443/image.jpg',
+        url: event.body.MediaUrl0,
         agentOptions: {
                 rejectUnauthorized: false
         },
         method: 'GET'
-  }, 'https://node0.controller.cs799-serverless-pg0.wisc.cloudlab.us:4443/image.jpg').then(res => {
+  }, event.body.MediaUrl0).then(res => {
 	  callback(null, event.body)
   });
   

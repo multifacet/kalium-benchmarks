@@ -14,7 +14,7 @@ functions:
     environment:
       DBNAME: 'helloRetail'
       TABLE_CREDIT_CARDS_NAME: 'creditCardsName'
-      HOST: 'mysql.default.svc.cluster.local'
+      HOST: 'mysql.openfaas-fn.svc.cluster.local'
       USER: 'abc'
       PASS: 'xyz'
     annotations:

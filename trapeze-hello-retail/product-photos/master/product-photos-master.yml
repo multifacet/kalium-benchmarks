@@ -5,8 +5,8 @@ provider:
 functions:
   trapeze-product-photos-1-microbench:
     lang: node10-express
-    handler: ./product-photos-1-microbench
-    image: dsirone/trapeze-product-photos-1-microbench:latest
+    handler: ./product-photos-master
+    image: dsirone/trapeze-product-photos-master:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable
