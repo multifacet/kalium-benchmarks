@@ -73,7 +73,7 @@ $ pushd trapeze-hello-retail && ./run_all_benches.sh gvisor && popd
 The above commands will generate results directories `results_gvisor` under the respective directories (vanilla-hello-retail, valve-hello-retail, trapeze-hello-retail).
 
 #### Running with Kalium
-If there are changes to the repo from the previous runs run `git reset` to reset the changes.
+If there are changes to the repo from the previous runs, run `git checkout .` to reset the changes.
 
 Checkout the gvisor branch of the benchmarks by running `git checkout artifact_kalium`.
 Copy `build/bin/runsc_kalium` to `/usr/local/bin/runsc` on all the Kubernetes nodes. 
@@ -90,7 +90,7 @@ $ pushd vanilla-hello-retail && ./run_all_benches.sh kalium && popd
 The above commands will generate result directory `results_kalium` under the respective directory (vanilla-hello-retail).
 
 ### Running Microbenchmark for Per-Syscall Overheads <a name="micro"></a>
-If there are changes to the repo from the previous runs run `git reset` to reset the changes.
+If there are changes to the repo from the previous runs, run `git checkout .` to reset the changes.
 
 Checkout the gvisor branch of the benchmarks by running `git checkout artifact_kalium`.
 Copy `build/bin/runsc_microbench` to `/usr/local/bin/runsc` on all the Kubernetes nodes. Clear `/mydata/runsc_logs` on all the Kubernetes nodes.
