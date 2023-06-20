@@ -107,7 +107,7 @@ Run the microbenchmark as follows:
 $ cd vanilla-hello-retail/product-photos/1.microbench
 $ faas-cli deploy -f product-photos-1-microbench.yml --gateway $HOSTNAME:31112
 $ sleep 70
-$ ./runbench 20 bench_20_microbench
+$ ./run_bench.sh 20 bench_20_microbench
 ```
 
 Check the node on which the pod is running by running `kubectl get pods -n openfaas-fn -o wide`.
@@ -115,3 +115,22 @@ Check the node on which the pod is running by running `kubectl get pods -n openf
 Open to a shell to the node running the microbenchmark pod and navigate to `/mydata/runsc_logs/`. There should be exactly one file ending with `.boot`, if there are multiple files from previous runs, note the one which is modified the latest.
 
 Copy the `.boot` file locally for later analysis.
+
+### Generating Performance Graph (Figure 8) <a name="graph"></a>
+Run `python3 compute_rel_graph_csv.py <vanilla_results_kalium_dir> <vanilla_results_gvisor_dir> <valve_results_gvisor_dir> <trapeze_results_gvisor_dir>` where:
+- `<vanilla_results_kalium_dir>` is `vanilla-hello-retail/results_kalium`
+- `<vanilla_results_gvisor_dir>` is `vanilla-hello-retail/results_gvisor`
+- `<valve_results_gvisor_dir>` is `valve-hello-retail/results_gvisor`
+- `<trapeze_results_gvisor_dir>` is `trapeze-hello-retail/results_gvisor`
+
+This will generate 3 files: seclats.csv, valvelats.csv and trapezelats.csv. These file can be replaced in 56, 60 and 64 in `graphs/figure/fig_latRestRel.tex`. After this run `make` in the graphs directory.
+
+### Generating Policy Accuracy Graph (Figure 7) <a name="policy"></a>
+
+Run `make` in the `graphs` directory. The data used to generate the data is already present.
+
+### Generating Per Syscall Overheads <a name="syscall"></a>
+Run `scripts/display_per_syscall_overheads.py <boot_file>` where:
+- `<boot_file>` is the boot file saved from the microbenchmark run
+
+This script will print out the statistics of the various overheads.
