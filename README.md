@@ -59,6 +59,8 @@ Open a new terminal to the controller and start the server by running `python se
 The benchmarks consist of 3 application flows: productCatalogApi, product-photos, product-purchase. The 3 flows need to be run with stock gVisor as well as with Kalium.
 
 #### Running with Stock gVisor
+If there are changes to the repo from the previous runs, run `git checkout .` to reset the changes.
+
 Checkout the gvisor branch of the benchmarks by running `git checkout artifact_gvisor`
 Copy `build/bin/runsc_stock` to `/usr/local/bin/runsc` on all the Kubernetes nodes. Open a new terminal to the controller and start the image server by running `python server.py`.
 
