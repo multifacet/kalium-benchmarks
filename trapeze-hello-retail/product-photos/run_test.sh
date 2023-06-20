@@ -59,12 +59,14 @@ popd
 pushd ./master/
 ./run_bench_photos.sh 20 $1_20_masterPhotos
 ../stats.py $1_20_masterPhotos > $1_20_masterPhotos_results
+cp $1_20_masterPhotos_results $2
 popd
 
 # master-receive
 pushd ./master/
 ./run_bench_receive.sh 20 $1_20_masterReceive
 ../stats.py $1_20_masterReceive > $1_20_masterReceive_results
+cp $1_20_masterReceive_results $2
 popd
 
 ./launch_functions.sh remove
