@@ -16,8 +16,9 @@ Clone this repository on the Kubernetes controller node.
 7. [Generating Per Syscall Overheads](#syscall)
 
 
-### Setting up MySql Database <a name="mysql"></a>
-[Time taken: approx 30 mins]
+### 1. Setting up MySql Database <a name="mysql"></a>
+**[Time taken: approx 30 mins]**
+
 Some of the benchmark functions require a prebuilt database. The database is run inside a Kubernetes pod in the openfaas-fn namespace.
 ```
 cd mysql
@@ -42,8 +43,11 @@ $ mysql -u root -ppassword -h <mysql pod IP> -P 3306
 > exit
 ```
 
-### Setting up Image Server <a name="imgsrvr"></a>
-[Time taken: approx 10 mins]
+### 2. Setting up Image Server <a name="imgsrvr"></a>
+**[Time taken: approx 10 mins]**
+
+**If this step was already done then it can be skipped.**
+
 The image server is needed for the microbenchmark as well as the receive function in the product-photos benchmark. It is a python server script that serves an image at the url https://<hostname>:4443/image.jpg
 
 In order for kalium to intercept the request, the server needs a valid certificate chain.
@@ -52,13 +56,14 @@ Copy the `python_server` folder into the controller node. Follow the guide at [t
 
 Create a directory called `certs` in `srv_dir`. Copy `fullchain.pem` and `privkey.pem` to `certs`.
 
-Open a new terminal to the controller and start the server by running `python server.py`. Test it out by visiting the URL https://<hostname>:4443/image.jpg on your browser
+Open a new terminal to the controller and start the server by running `python server.py`. Test it out by visiting the URL [https://\<hostname\>:4443/image.jpg]() on your browser
 
-### Running Benchmarks <a name="bench"></a>
-[Time Taken: 3-4 hours]
+### 3. Running Benchmarks <a name="bench"></a>
+**[Time Taken: 3-4 hours]**
+
 The benchmarks consist of 3 application flows: productCatalogApi, product-photos, product-purchase. The 3 flows need to be run with stock gVisor as well as with Kalium.
 
-#### Running with Stock gVisor
+#### 3.1 Running with Stock gVisor
 If there are changes to the repo from the previous runs, run `git checkout .` to reset the changes.
 
 Checkout the gvisor branch of the benchmarks by running `git checkout artifact_gvisor`
@@ -74,7 +79,7 @@ $ pushd trapeze-hello-retail && ./run_all_benches.sh gvisor && popd
 
 The above commands will generate results directories `results_gvisor` under the respective directories (vanilla-hello-retail, valve-hello-retail, trapeze-hello-retail).
 
-#### Running with Kalium
+#### 3.2 Running with Kalium
 If there are changes to the repo from the previous runs, run `git checkout .` to reset the changes.
 
 Checkout the gvisor branch of the benchmarks by running `git checkout artifact_kalium`.
@@ -91,7 +96,7 @@ $ pushd vanilla-hello-retail && ./run_all_benches.sh kalium && popd
 
 The above commands will generate result directory `results_kalium` under the respective directory (vanilla-hello-retail).
 
-### Running Microbenchmark for Per-Syscall Overheads <a name="micro"></a>
+### 4. Running Microbenchmark for Per-Syscall Overheads <a name="micro"></a>
 If there are changes to the repo from the previous runs, run `git checkout .` to reset the changes.
 
 Checkout the gvisor branch of the benchmarks by running `git checkout artifact_kalium`.
@@ -116,7 +121,7 @@ Open to a shell to the node running the microbenchmark pod and navigate to `/myd
 
 Copy the `.boot` file locally for later analysis.
 
-### Generating Performance Graph (Figure 8) <a name="graph"></a>
+### 5. Generating Performance Graph (Figure 8) <a name="graph"></a>
 Run `python3 compute_rel_graph_csv.py <vanilla_results_kalium_dir> <vanilla_results_gvisor_dir> <valve_results_gvisor_dir> <trapeze_results_gvisor_dir>` where:
 - `<vanilla_results_kalium_dir>` is `vanilla-hello-retail/results_kalium`
 - `<vanilla_results_gvisor_dir>` is `vanilla-hello-retail/results_gvisor`
@@ -125,11 +130,11 @@ Run `python3 compute_rel_graph_csv.py <vanilla_results_kalium_dir> <vanilla_resu
 
 This will generate 3 files: seclats.csv, valvelats.csv and trapezelats.csv. These file can be replaced in 56, 60 and 64 in `graphs/figure/fig_latRestRel.tex`. After this run `make` in the graphs directory.
 
-### Generating Policy Accuracy Graph (Figure 7) <a name="policy"></a>
+### 6. Generating Policy Accuracy Graph (Figure 7) <a name="policy"></a>
 
 Run `make` in the `graphs` directory. The data used to generate the data is already present.
 
-### Generating Per Syscall Overheads <a name="syscall"></a>
+### 7. Generating Per Syscall Overheads <a name="syscall"></a>
 Run `scripts/display_per_syscall_overheads.py <boot_file>` where:
 - `<boot_file>` is the boot file saved from the microbenchmark run
 
