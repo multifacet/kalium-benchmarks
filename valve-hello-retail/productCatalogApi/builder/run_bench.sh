@@ -11,4 +11,4 @@ if [ -z "$1" ] || [ -z "$2" ]; then
 fi
 
 ./run_bench-product.sh $1 $2_$1_builder_product
-./run_bench-image.sh $1 $2_$1_builder_image
+./run_bench-image.sh $1 $2_$1_builder_photo

@@ -18,4 +18,4 @@ pushd ./4.publish/
 faas-cli $1 -f product-purchase-4-publish.yml --gateway $HOSTNAME:31112
 popd
 
-sleep 37
+sleep 70
