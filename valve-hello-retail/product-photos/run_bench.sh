@@ -64,7 +64,7 @@ popd
 
 # master-receive
 pushd ./master/
-./run_bench_receive.sh 20 $1_20_masterReceive
+./run_bench_request.sh 20 $1_20_masterReceive
 ../stats.py $1_20_masterReceive > $1_20_masterReceive_results
 cp $1_20_masterReceive_results $2
 popd
