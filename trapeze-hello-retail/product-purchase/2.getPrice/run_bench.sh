@@ -13,6 +13,6 @@ fi
 counter=0
 while [ $counter -lt $NUM_ITER ]
 do
-	curl -d @sample-input.json -w "@curl-format_total.txt" -H "Content-Type: application/json" -X POST "http://$HOSTNAME:31112/function/trapeze-product-purchase-2-get-price" -m 6 -o /dev/null >> $2
+	curl -d @sample-input.json -w "@curl-format_total.txt" -H "Content-Type: application/json" -X POST "http://$HOSTNAME:31112/function/trapeze-product-purchase-2-get-price" -o /dev/null >> $2
 	counter=$((counter + 1))
 done
