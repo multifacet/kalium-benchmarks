@@ -2,7 +2,7 @@
 
 set -ex
 
-./launch_functions.sh up
+./launch_functions.sh deploy
 
 # 1.autheticate
 pushd ./1.authenticate/

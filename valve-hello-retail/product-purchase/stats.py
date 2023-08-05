@@ -11,7 +11,7 @@ def main():
     for line in s:
         l = line.strip("\n")
         p = float(l[:-1])
-        if p < 5.00:
+        if p <= 100.00:
             s1 += p
             n1 += 1
     avg = s1 / n1
@@ -19,7 +19,7 @@ def main():
     for line in s:
         l = line.strip("\n")
         p = float(l[:-1])
-        if p < 5.00:
+        if p <= 100.00:
             stdev += ((p - avg) ** 2)
     stdev = math.sqrt(stdev / (n1 - 1))
     print ("Avg: %f, Stdev: %f" % (avg, stdev))
