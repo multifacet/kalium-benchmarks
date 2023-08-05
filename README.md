@@ -52,7 +52,7 @@ The image server is needed for the microbenchmark as well as the receive functio
 
 In order for kalium to intercept the request, the server needs a valid certificate chain.
 
-Copy the `python_server` folder into the controller node. Follow the guide at [the certbot website](https://certbot.eff.org/instructions?ws=other&os=ubuntubionic) to get a certificate for the controller domain. When prompted for the domain, provide the publicly facing hostname of the controller node.
+Copy the `python_server` folder into the Kalium controller node. Follow the guide at [the certbot website](https://certbot.eff.org/instructions?ws=other&os=ubuntubionic) to get a certificate for the controller domain. When prompted for the domain, provide the publicly facing hostname of the controller node.
 
 Create a directory called `certs` in `srv_dir`. Copy `fullchain.pem` and `privkey.pem` to `certs`.
 
@@ -135,7 +135,8 @@ This will generate 3 files: seclats.csv, valvelats.csv and trapezelats.csv. Thes
 Run `make` in the `graphs` directory. The data used to generate the data is already present.
 
 ### 7. Generating Per Syscall Overheads <a name="syscall"></a>
-Run `scripts/display_per_syscall_overheads.py <boot_file>` where:
+Install `python 3.8+`
+Run `python3.8 scripts/display_per_syscall_overheads.py <boot_file>` where:
 - `<boot_file>` is the boot file saved from the microbenchmark run
 
 This script will print out the statistics of the various overheads.
