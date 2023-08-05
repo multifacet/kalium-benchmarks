@@ -6,7 +6,7 @@ functions:
   product-purchase-1-authenticate:
     lang: node10-express
     handler: ./product-purchase-1-authenticate
-    image: dsirone/product-purchase-1authenticate:latest
+    image: dsirone/gvisor-product-purchase-1authenticate:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable

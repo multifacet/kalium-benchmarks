@@ -6,6 +6,6 @@ functions:
   product-photos-2-message:
     lang: node10-express
     handler: ./product-photos-2-message
-    image: dsirone/product-photos-2-message:latest
+    image: dsirone/gvisor-product-photos-2-message:latest
     annotations:
       com.openfaas.profile: test

@@ -6,7 +6,7 @@ functions:
   product-catalog-builder:
     lang: node10-express
     handler: ./product-catalog-builder
-    image: dsirone/product-catalog-builder:latest
+    image: dsirone/gvisor-product-catalog-builder:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable

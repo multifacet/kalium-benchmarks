@@ -2,7 +2,7 @@
 
 set -ex
 
-./launch_functions.sh deploy
+./launch_functions.sh up
 
 # $2 is the results dir
 # $1 is the runtime: gvisor, kalium

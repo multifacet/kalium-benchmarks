@@ -6,7 +6,7 @@ functions:
   product-photos-1-microbench:
     lang: node10-express
     handler: ./product-photos-1-microbench
-    image: dsirone/product-photos-1-microbench:latest
+    image: dsirone/gvisor-product-photos-1-microbench:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable

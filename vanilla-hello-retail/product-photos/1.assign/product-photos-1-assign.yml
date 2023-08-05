@@ -6,7 +6,7 @@ functions:
   product-photos-1-assign:
     lang: node10-express
     handler: ./product-photos-1-assign
-    image: dsirone/product-photos-1-assign:latest
+    image: dsirone/gvisor-product-photos-1-assign:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable

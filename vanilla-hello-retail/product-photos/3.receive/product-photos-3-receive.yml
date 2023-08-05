@@ -6,7 +6,7 @@ functions:
   product-photos-3-receive:
     lang: node10-express
     handler: ./product-photos-3-receive
-    image: dsirone/product-photos-3-receive:latest
+    image: dsirone/gvisor-product-photos-3-receive:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable

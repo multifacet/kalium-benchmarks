@@ -6,7 +6,7 @@ functions:
   product-photos-6-report:
     lang: node10-express
     handler: ./product-photos-6-report
-    image: dsirone/product-photos-6-report:latest
+    image: dsirone/gvisor-product-photos-6-report:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable

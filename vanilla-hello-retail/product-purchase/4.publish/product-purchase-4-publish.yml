@@ -6,7 +6,7 @@ functions:
   product-purchase-4-publish:
     lang: node10-express
     handler: ./product-purchase-4-publish
-    image: dsirone/product-purchase-4-publish:latest
+    image: dsirone/gvisor-product-purchase-4-publish:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable

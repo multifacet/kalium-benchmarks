@@ -6,7 +6,7 @@ functions:
   product-catalog-api:
     lang: node10-express
     handler: ./product-catalog-api
-    image: dsirone/product-catalog-api:latest
+    image: dsirone/gvisor-product-catalog-api:latest
     read_timeout: 500 # seconds
     write_timeout: 500 # seconds
     exec_timeout: 0s # disable
